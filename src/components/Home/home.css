@@ -1,0 +1,21 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-button {
+  margin-left: 20px;
+  padding: 10px;
+  background: #4267b2;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  width: 110px;
+}
+
+.input-box {
+  padding: 10px;
+  width: 39%;
+}

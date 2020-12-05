@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-list {
+  flex-basis: 16%;
+  flex-basis: 16%;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.icon-style {
+  transform: rotate(270deg);
+  display: inline-block;
+}
+
+.icon-style-rotate {
+  transform: rotate(90deg);
+  display: inline-block;
+}
