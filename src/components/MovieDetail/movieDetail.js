@@ -14,7 +14,7 @@ const MovieDetail = (props) => {
 
   useEffect(() => {
     dispatch(fetchMovieDetail(movieId));
-  }, [props]);
+  }, [dispatch, movieId]);
 
   posterPath = useSelector(
     (state) => state.movies?.movieDetail?.data?.poster_path
@@ -27,6 +27,7 @@ const MovieDetail = (props) => {
   return (
     <div className="movie-detail-container">
       <img
+        alt="Movie Poster"
         className="image-style"
         src={`https://image.tmdb.org/t/p/w500${posterPath}`}
       ></img>

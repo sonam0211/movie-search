@@ -9,6 +9,7 @@ const Home = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMovieList());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [searchState, setSearchState] = useState("");

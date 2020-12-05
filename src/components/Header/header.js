@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "./header.css";
 
@@ -9,13 +9,7 @@ const Header = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMovieList());
-  }, []);
-
-  let movieList = [];
-
-  useSelector((state) => {
-    movieList = state.movies.movieList.data;
-  });
+  }, [dispatch]);
 
   return (
     <div className="header-container">
