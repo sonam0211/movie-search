@@ -17,8 +17,8 @@ const Pagination = ({ totalMovie, moviePerPage, fetchNumber, currentPage }) => {
 
   const getNextNumber = () => {
     const showCurrentNumber = currentNumber.map((num) => {
-      if (num <= movieArray.length) {
-        return num + 10;
+      if (num + 5 <= movieArray.length) {
+        return num + 5;
       } else {
         return num;
       }

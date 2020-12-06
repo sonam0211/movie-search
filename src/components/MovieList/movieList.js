@@ -16,7 +16,7 @@ const MovieList = () => {
   };
   const [currentPage, setCurrentPage] = useState(1);
   const [toggleState, setToggleState] = useState(initialToggleState);
-  const moviePerPage = 10;
+  const moviePerPage = 5;
 
   let movieList = [];
 
@@ -26,7 +26,7 @@ const MovieList = () => {
   });
 
   const [showCurrentMovie, setShowCurrentMovie] = useState(
-    movieList?.slice(0, 10)
+    movieList?.slice(0, 5)
   );
 
   const fetchNumber = (number) => {

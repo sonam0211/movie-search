@@ -12,17 +12,16 @@ const MovieDetail = (props) => {
     "/"
   )[4];
 
-  useEffect(() => {
-    dispatch(fetchMovieDetail(movieId));
-  }, [dispatch, movieId]);
-
   posterPath = useSelector(
     (state) => state.movies?.movieDetail?.data?.poster_path
   );
-
   overview =
     useSelector((state) => state.movies?.movieDetail?.data?.overview) ||
     "Error";
+
+  useEffect(() => {
+    dispatch(fetchMovieDetail(movieId));
+  }, [dispatch, movieId]);
 
   return (
     <div className="movie-detail-container">
