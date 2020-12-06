@@ -6,7 +6,7 @@ const MoviePagination = ({ currentMovie }) => {
   const fetchList = () => {
     return currentMovie?.map((item, index) => {
       return (
-        <div key={`${index}movie`} className="container">
+        <div key={`${index}movie`} className="pagination-container">
           <div className="item">
             <Link to={{ pathname: "/movieDetail", props: { movieItem: item } }}>
               {item.movie_title}

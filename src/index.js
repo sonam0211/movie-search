@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import reducer from "./data/reducers/indexReducer";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
+import "font-awesome/css/font-awesome.min.css";
 
 const store = createStore(reducer, applyMiddleware(thunk));
 

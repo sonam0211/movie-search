@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./pagination.css";
 
 const Pagination = ({ totalMovie, moviePerPage, fetchNumber, currentPage }) => {
@@ -13,20 +13,17 @@ const Pagination = ({ totalMovie, moviePerPage, fetchNumber, currentPage }) => {
     }
   }
 
-  useEffect(() => {
-    console.log(currentPage);
-  }, [currentPage]);
-
   let [currentNumber, setCurrentNumber] = useState(initialMovieArray);
 
   const getNextNumber = () => {
     const showCurrentNumber = currentNumber.map((num) => {
       if (num <= movieArray.length) {
-        return num + 5;
+        return num + 10;
       } else {
         return num;
       }
     });
+
     setCurrentNumber(showCurrentNumber);
 
     fetchNumber(showCurrentNumber[0]);
@@ -60,7 +57,7 @@ const Pagination = ({ totalMovie, moviePerPage, fetchNumber, currentPage }) => {
   };
 
   const getPagination = () => {
-    return currentNumber.map((number, index) => {
+    return currentNumber.map((number) => {
       return (
         <div key={`${number} list`}>
           <div className="listStyle">
@@ -89,7 +86,7 @@ const Pagination = ({ totalMovie, moviePerPage, fetchNumber, currentPage }) => {
         {"<<"}
       </button>
       {getPagination()}
-      <button className="button-style" onClick={getNextNumber}>
+      <button className={`button-style `} onClick={getNextNumber}>
         {">>"}
       </button>
       <button className="button-style" onClick={handleNextButton}>

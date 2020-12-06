@@ -1,6 +1,8 @@
-.container {
+.movie-container {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid grey;
+  padding: 20px;
 }
 
 .item-list {
@@ -9,14 +11,18 @@
   font-size: 22px;
   font-weight: bold;
   margin: 20px;
+  display: flex;
 }
 
 .icon-style {
-  transform: rotate(270deg);
-  display: inline-block;
+  /* transform: rotate(270deg); */
+
+  margin: -5px 8px 0 0;
+  cursor: pointer;
 }
 
 .icon-style-rotate {
-  transform: rotate(90deg);
-  display: inline-block;
+  transform: rotate(180deg);
+  cursor: pointer;
+  margin: 4px 8px 0 0;
 }

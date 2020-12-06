@@ -1,6 +1,8 @@
-.container {
+.pagination-container {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid grey;
+  padding: 20px;
 }
 
 .item {

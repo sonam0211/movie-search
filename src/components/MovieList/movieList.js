@@ -17,9 +17,11 @@ const MovieList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [toggleState, setToggleState] = useState(initialToggleState);
   const moviePerPage = 10;
+
   let movieList = [];
 
   useSelector((state) => {
+    console.log(movieList);
     movieList = state.movies.movieList.data;
   });
 
@@ -37,12 +39,15 @@ const MovieList = () => {
       indexOfFirstMovie,
       indexOfLastMovie
     );
+
     setShowCurrentMovie(findCurrentMovie);
   };
 
   const { title, name, language, rating, budget, year } = toggleState;
-  const toggleIcon = (type, value) => {
+
+  const toggleIcon = (type, value, sortValue) => {
     setToggleState({ ...toggleState, [type]: !value });
+    sortList(sortValue);
   };
 
   const sortList = (sortItem) => {
@@ -110,60 +115,60 @@ const MovieList = () => {
 
   return (
     <div>
-      <div className="container">
-        <div onClick={() => sortList("movie_title")} className="item-list">
+      <div className="movie-container ">
+        <div className="item-list">
           <span
-            onClick={() => toggleIcon("title", title)}
+            onClick={() => toggleIcon("title", title, "movie_title")}
             className={title ? "icon-style" : "icon-style-rotate"}
           >
-            {"<"}
+            <i className="fa fa-sort-desc"></i>
           </span>
           <span> Movie Title</span>
         </div>
-        <div onClick={() => sortList("director_name")} className="item-list">
+        <div className="item-list">
           <span
-            onClick={() => toggleIcon("name", name)}
+            onClick={() => toggleIcon("name", name, "director_name")}
             className={name ? "icon-style" : "icon-style-rotate"}
           >
-            {"<"}
+            <i className="fa fa-sort-desc"></i>
           </span>
           <span>Director Name</span>
         </div>
-        <div onClick={() => sortList("language")} className="item-list">
+        <div className="item-list">
           <span
-            onClick={() => toggleIcon("language", language)}
+            onClick={() => toggleIcon("language", language, "language")}
             className={language ? "icon-style" : "icon-style-rotate"}
           >
-            {"<"}
+            <i className="fa fa-sort-desc"></i>
           </span>
           <span>Language</span>
         </div>
-        <div onClick={() => sortList("content_rating")} className="item-list">
+        <div className="item-list">
           <span
-            onClick={() => toggleIcon("rating", rating)}
+            onClick={() => toggleIcon("rating", rating, "content_rating")}
             className={rating ? "icon-style" : "icon-style-rotate"}
           >
-            {"<"}
+            <i className="fa fa-sort-desc"></i>
           </span>
           <span>Content Rating</span>
         </div>
-        <div onClick={() => sortList("budget")} className="item-list">
+        <div className="item-list">
           <span
-            onClick={() => toggleIcon("budget", budget)}
+            onClick={() => toggleIcon("budget", budget, "budget")}
             className={budget ? "icon-style" : "icon-style-rotate"}
           >
-            {"<"}
+            <i className="fa fa-sort-desc"></i>
           </span>
           <span>Budget</span>
         </div>
-        <div onClick={() => sortList("title_year")} className="item-list">
-          <span
-            onClick={() => toggleIcon("year", year)}
+        <div className="item-list">
+          <div
+            onClick={() => toggleIcon("year", year, "title_year")}
             className={year ? "icon-style" : "icon-style-rotate"}
           >
-            {"<"}
-          </span>
-          <span>Title Year</span>
+            <i className="fa fa-sort-desc"></i>
+          </div>
+          <div>Title Year</div>
         </div>
       </div>
       <MoviePagination currentMovie={showCurrentMovie}></MoviePagination>
