@@ -11,6 +11,6 @@
 
 .header-container {
   display: flex;
-  margin-bottom: 80px;
-  padding: 20px;
+
+  margin: 30px 80px 80px;
 }

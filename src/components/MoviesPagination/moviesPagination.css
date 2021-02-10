@@ -1,12 +1,4 @@
-.pagination-container {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid grey;
-  padding: 20px;
-}
-
 .item {
-  flex-basis: 16%;
-  margin: 10px 20px;
+  margin: 10px 0;
   font-size: 18px;
 }

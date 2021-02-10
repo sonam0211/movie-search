@@ -1,0 +1,30 @@
+.pointer {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.icon-style {
+  margin: -5px 8px 0 0;
+  cursor: pointer;
+}
+
+.icon-style-rotate {
+  transform: rotate(180deg);
+  cursor: pointer;
+  margin: 4px 8px 0 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 25% 20% 12% 13% 12% 13%;
+  margin: 0 80px;
+}
+
+.grid > span {
+  padding: 16px;
+  border-bottom: 1px solid gray;
+}
+
+.table-heading {
+  background-color: lightgray;
+}

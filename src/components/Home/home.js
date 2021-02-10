@@ -1,39 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
-import { fetchMovieList } from "../../data/action";
 import SearchResult from "../SearchResult/searchResult";
 import "./home.css";
 
-const Home = (props) => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchMovieList());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+import Button from "../Button/button";
+import Input from "../Input-Box/Input";
 
+const Home = (props) => {
   const [searchState, setSearchState] = useState("");
   const [searchData, setSearchData] = useState([]);
-  let movieList = [];
 
-  useSelector((state) => {
-    movieList = state.movies.movieList.data;
-  });
+  const movieList = useSelector((state) => state.movies.movieList.data);
 
   const searchResult = () => {
-    const searchData = movieList?.filter((item) => {
+    const movieData = movieList?.filter((item) => {
       return item.movie_title.toLowerCase().includes(searchState);
     });
 
-    setSearchData(searchData);
+    setSearchData(movieData.slice(0, 5));
   };
 
   return (
-    <>
+    <div className="home-flex">
       <div className="home-container">
-        {" "}
-        <input
-          className="input-box"
+        <Input
           onChange={(e) => {
             setSearchState(e.target.value);
             searchResult();
@@ -41,13 +32,12 @@ const Home = (props) => {
           value={searchState}
           placeholder="Search your movie here"
         />
-        <button className="search-button" onClick={searchResult}>
-          Search
-        </button>
+
+        <Button text="search" onClick={searchResult} />
       </div>
 
-      {searchState && <SearchResult searchData={searchData} />}
-    </>
+      <div> {searchState && <SearchResult searchData={searchData} />}</div>
+    </div>
   );
 };
 

@@ -1,12 +1,3 @@
-.home-container {
-  display: flex;
-}
-
-.home-flex {
-  display: flex;
-  flex-direction: column;
-  margin: 0 80px;
-}
 .search-button {
   margin-left: 20px;
   padding: 10px;
@@ -16,9 +7,4 @@
   border: none;
   font-size: 16px;
   width: 110px;
-}
-
-.input-box {
-  padding: 10px;
-  width: 39%;
 }
